@@ -1,18 +1,58 @@
-## Getting Started
+# 🏥 Projeto Hospitalar em Java com Design Patterns
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este é um projeto simples em Java que simula o fluxo de atendimento em um hospital utilizando **Design Patterns (Padrões de Projeto)** para estruturar as etapas de forma clara, escalável e reutilizável.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## 🚀 Funcionalidades
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O sistema simula o processo de atendimento hospitalar com as seguintes etapas:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+1. **Triagem**  
+2. **Atendimento Médico**
+3. **Diagnóstico**
+4. **Resultado Final**
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+O sistema lida com **três doenças**:
+- Gripe
+- Sinusite
+- Gastrite
 
-## Dependency Management
+---
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## 🧠 Design Patterns Utilizados
+
+| Etapa                     | Padrão de Projeto Utilizado |
+|--------------------------|-----------------------------|
+| Criação das doenças      | Factory Method              |
+| Estratégia de diagnóstico| Strategy                    |
+| Fluxo de atendimento     | Template Method             |
+| Registro de resultados   | Singleton                   |
+
+---
+
+## 🗂️ Estrutura do Projeto
+
+```bash
+hospital/
+│
+├── Main.java
+├── diseases/
+│   ├── Disease.java         # Interface de doença
+│   ├── Flu.java             # Gripe
+│   ├── Sinusitis.java       # Sinusite
+│   └── Gastritis.java       # Gastrite
+│
+├── diagnosis/
+│   ├── DiagnosisStrategy.java    # Interface para estratégia de diagnóstico
+│   └── SimpleDiagnosis.java     # Implementação simples
+│
+├── factory/
+│   └── DiseaseFactory.java      # Fábrica de doenças
+│
+├── process/
+│   ├── MedicalProcess.java      # Template Method do atendimento
+│   └── StandardMedicalProcess.java
+│
+└── record/
+    └── ResultRegistry.java      # Registro Singleton dos diagnósticos
